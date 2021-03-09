@@ -56,6 +56,7 @@ public class PinAndWireInteraction : InteractionHandler {
 
 	public void LoadWire (Wire wire) {
 		wire.transform.parent = wireHolder;
+
 		allWires.Add (wire);
 		wiresByChipInputPin.Add (wire.ChipInputPin, wire);
 	}

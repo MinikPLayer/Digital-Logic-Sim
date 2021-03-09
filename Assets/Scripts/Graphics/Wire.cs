@@ -209,7 +209,7 @@ public class Wire : MonoBehaviour {
 		Vector2 lastLocalPos = Vector2.zero;
 		for (int i = 0; i < lineRenderer.positionCount; i++) {
 			Vector2 localPos = transform.parent.InverseTransformPoint (drawPoints[i]);
-			lineRenderer.SetPosition (i, new Vector3 (localPos.x, localPos.y, -0.01f));
+			lineRenderer.SetPosition (i, new Vector3 (drawPoints[i].x, drawPoints[i].y, -0.01f));
 
 			if (i > 0) {
 				length += (lastLocalPos - localPos).magnitude;

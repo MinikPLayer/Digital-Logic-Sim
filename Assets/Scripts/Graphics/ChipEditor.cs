@@ -19,6 +19,8 @@ public class ChipEditor : MonoBehaviour {
 	[HideInInspector]
 	public int creationIndex;
 
+	public bool chipEditMode = false;
+
 	void Awake () {
 		InteractionHandler[] allHandlers = { inputsEditor, outputsEditor, chipInteraction, pinAndWireInteraction };
 		foreach (var handler in allHandlers) {
@@ -57,6 +59,8 @@ public class ChipEditor : MonoBehaviour {
 			} else {
 				chipInteraction.LoadChip (componentChip);
 			}
+
+			componentChip.gameObject.SetActive(true);
 		}
 
 		// Load wires

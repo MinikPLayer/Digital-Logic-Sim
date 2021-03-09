@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1793,7 +1793,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 710308878}
   m_OnClick:
     m_PersistentCalls:
@@ -2888,10 +2888,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.099384844
-    y: 0
-    width: 0.8012303
-    height: 1
+    x: 0
+    y: 0.00017857552
+    width: 1
+    height: 0.99964285
   near clip plane: 0.3
   far clip plane: 1500
   field of view: 60
@@ -4294,6 +4294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chipNameField: {fileID: 2046203511}
+  viewButton: {fileID: 710308877}
   doneButton: {fileID: 288326063}
   deleteButton: {fileID: 1697958801}
   panel: {fileID: 110983296}
@@ -8497,6 +8498,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498117852794563987, guid: 429ffccb629934c78a25b70bfb53c50e,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498117852794563987, guid: 429ffccb629934c78a25b70bfb53c50e,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8459108
       objectReference: {fileID: 0}
@@ -8512,6 +8518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498117852794563987, guid: 429ffccb629934c78a25b70bfb53c50e,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498117852794563987, guid: 429ffccb629934c78a25b70bfb53c50e,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -8524,16 +8535,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498117852794563987, guid: 429ffccb629934c78a25b70bfb53c50e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498117852794563987, guid: 429ffccb629934c78a25b70bfb53c50e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6498117852794563987, guid: 429ffccb629934c78a25b70bfb53c50e,
         type: 3}
@@ -8566,6 +8567,11 @@ PrefabInstance:
       objectReference: {fileID: 963194227}
     - target: {fileID: 4750937599765430253, guid: d48b4f02647794ac2aba95960c3d59ab,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750937599765430253, guid: d48b4f02647794ac2aba95960c3d59ab,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -8581,6 +8587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750937599765430253, guid: d48b4f02647794ac2aba95960c3d59ab,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750937599765430253, guid: d48b4f02647794ac2aba95960c3d59ab,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -8593,16 +8604,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750937599765430253, guid: d48b4f02647794ac2aba95960c3d59ab,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750937599765430253, guid: d48b4f02647794ac2aba95960c3d59ab,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4750937599765430253, guid: d48b4f02647794ac2aba95960c3d59ab,
         type: 3}

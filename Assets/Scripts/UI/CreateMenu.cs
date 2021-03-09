@@ -22,6 +22,8 @@ public class CreateMenu : MonoBehaviour {
 	public Color[] suggestedColours;
 	int suggestedColourIndex;
 
+	bool lastChipEditMode = false;
+
 	void Start () {
 		doneButton.onClick.AddListener (FinishCreation);
 		menuOpenButton.onClick.AddListener (OpenMenu);
@@ -44,6 +46,18 @@ public class CreateMenu : MonoBehaviour {
 				chipNameField.caretPosition = chipNameField.text.Length;
 			}
 		}
+
+		TextMeshProUGUI t = menuOpenButton.GetComponentInChildren<TextMeshProUGUI>();
+		bool chipEditMode = Manager.ActiveChipEditor.chipEditMode;
+		if (chipEditMode != lastChipEditMode)
+		{
+			if (chipEditMode)
+				t.text = "SAVE";
+			else
+				t.text = "CREATE";
+
+			lastChipEditMode = chipEditMode;
+		}
 	}
 
 	void ColourSliderChanged (float sliderValue) {
@@ -63,6 +77,12 @@ public class CreateMenu : MonoBehaviour {
 	}
 
 	void OpenMenu () {
+		if (Manager.ActiveChipEditor.chipEditMode)
+		{
+			FinishCreation();
+			return;
+		}
+
 		menuHolder.SetActive (true);
 		chipNameField.text = "";
 		ChipNameFieldChanged ("");

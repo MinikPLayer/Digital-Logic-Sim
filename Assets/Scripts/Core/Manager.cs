@@ -11,9 +11,20 @@ public class Manager : MonoBehaviour {
 	public Wire wirePrefab;
 	public Chip[] builtinChips;
 
-	ChipEditor activeChipEditor;
+	public ChipEditor activeChipEditor;
 	int currentChipCreationIndex;
 	static Manager instance;
+
+	public Dictionary<string, Chip> GetBuiltInChips()
+    {
+		Dictionary<string, Chip> dic = new Dictionary<string, Chip>();
+		for(int i = 0;i<builtinChips.Length;i++)
+        {
+			dic.Add(builtinChips[i].chipName, builtinChips[i]);
+        }
+
+		return dic;
+    }
 
 	void Awake () {
 		instance = this;
@@ -44,9 +55,26 @@ public class Manager : MonoBehaviour {
 	void SaveAndPackageChip () {
 
 		ChipSaver.Save (activeChipEditor);
+		if (activeChipEditor.chipEditMode)
+			DeletePackedChip();
+
 		PackageChip ();
 		LoadNewEditor ();
 	}
+	
+	void DeletePackedChip()
+    {
+		ChipPackage[] packages = transform.GetComponentsInChildren<ChipPackage>();
+		for (int i = 0; i < packages.Length; i++)
+		{
+			Chip chip = packages[i].GetComponent<Chip>();
+			if (chip.chipName == activeChipEditor.chipName)
+			{
+				Destroy(packages[i].gameObject);
+				return;
+			}
+		}
+    }
 
 	Chip PackageChip () {
 		ChipPackage package = Instantiate (chipPackagePrefab, parent : transform);
@@ -54,12 +82,16 @@ public class Manager : MonoBehaviour {
 		package.gameObject.SetActive (false);
 
 		Chip customChip = package.GetComponent<Chip> ();
-		customChipCreated?.Invoke (customChip);
+		if(!activeChipEditor.chipEditMode)
+			customChipCreated?.Invoke (customChip);
 		currentChipCreationIndex++;
+
+		if(!ChipLoader.previouslyLoadedChips.ContainsKey(customChip.chipName))
+			ChipLoader.previouslyLoadedChips.Add(customChip.chipName, customChip);
 		return customChip;
 	}
 
-	void LoadNewEditor () {
+	public void LoadNewEditor () {
 		if (activeChipEditor) {
 			Destroy (activeChipEditor.gameObject);
 		}

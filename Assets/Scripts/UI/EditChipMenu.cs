@@ -11,6 +11,7 @@ using System;
 public class EditChipMenu : MonoBehaviour
 {
     public TMP_InputField chipNameField;
+    public Button viewButton;
     public Button doneButton;
     public Button deleteButton;
     public GameObject panel;
@@ -31,6 +32,7 @@ public class EditChipMenu : MonoBehaviour
         chipNameField.onValueChanged.AddListener(ChipNameFieldChanged);
         doneButton.onClick.AddListener(FinishCreation);
         deleteButton.onClick.AddListener(DeleteChip);
+        viewButton.onClick.AddListener(ViewChip);
         UnityEngine.Debug.Log("Adding listener");
         manager = FindObjectOfType<Manager>();
         FindObjectOfType<ChipInteraction>().editChipMenu = this;
@@ -50,6 +52,7 @@ public class EditChipMenu : MonoBehaviour
         nameBeforeChanging = chip.chipName;
         doneButton.interactable = true;
         deleteButton.interactable = ChipSaver.IsSafeToDelete(nameBeforeChanging);
+        viewButton.interactable = ChipSaver.IsSafeToDelete(nameBeforeChanging);
     }
 
     public void ChipNameFieldChanged(string value)
@@ -86,6 +89,16 @@ public class EditChipMenu : MonoBehaviour
     public bool IsValidChipName(string chipName)
     {
         return chipName != "AND" && chipName != "NOT" && chipName.Length != 0;
+    }
+
+    public void ViewChip()
+    {
+        manager.LoadNewEditor();
+
+        var chip = ChipLoader.LoadChip(ChipLoader.GetSavedChip(SaveSystem.GetPathToSaveFile(nameBeforeChanging)), manager, manager.wirePrefab);
+
+        manager.activeChipEditor.LoadFromSaveData(chip);
+        manager.activeChipEditor.chipEditMode = true;
     }
 
     public void DeleteChip()

@@ -47,14 +47,14 @@ public static class ChipSaver {
 		{
 			return false;
 		}
-		SavedChip[] savedChips = SaveSystem.GetAllSavedChips();
+		/*SavedChip[] savedChips = SaveSystem.GetAllSavedChips();
 		for (int i = 0; i < savedChips.Length; i++)
 		{
 			if (savedChips[i].componentNameList.Contains(chipName))
 			{
 				return false;
 			}
-		}
+		}*/
 		return true;
 	}
 
