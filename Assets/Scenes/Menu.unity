@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 0.25 <size=25><color=#505050>(last updated 6 Dec 2020)</color></size>
+  m_text: Version 0.30 <size=25><color=#505050>(last updated 9 Mar 2021)</color></size>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1339,7 +1339,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Created by <color=#75ADFF><link="https://www.youtube.com/c/SebastianLague">Sebastian
-    Lague</link></color>
+    Lague</link></color>, forked and edited by <color=#75FFAD>Minik</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2682,9 +2682,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.00017857552
+    y: 0.00017553568
     width: 1
-    height: 0.99964285
+    height: 0.9996489
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

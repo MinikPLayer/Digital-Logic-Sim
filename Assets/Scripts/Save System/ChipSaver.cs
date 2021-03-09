@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -41,20 +40,30 @@ public static class ChipSaver {
 		
 	}
 
+	public static bool IsSafeToEdit(string chipName)
+    {
+		if (chipName == "AND" || chipName == "NOT")
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	public static bool IsSafeToDelete(string chipName)
 	{
 		if (chipName == "AND" || chipName == "NOT")
 		{
 			return false;
 		}
-		/*SavedChip[] savedChips = SaveSystem.GetAllSavedChips();
+		SavedChip[] savedChips = SaveSystem.GetAllSavedChips();
 		for (int i = 0; i < savedChips.Length; i++)
 		{
 			if (savedChips[i].componentNameList.Contains(chipName))
 			{
 				return false;
 			}
-		}*/
+		}
 		return true;
 	}
 

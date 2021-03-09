@@ -1,7 +1,6 @@
 ﻿using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -52,7 +51,7 @@ public class EditChipMenu : MonoBehaviour
         nameBeforeChanging = chip.chipName;
         doneButton.interactable = true;
         deleteButton.interactable = ChipSaver.IsSafeToDelete(nameBeforeChanging);
-        viewButton.interactable = ChipSaver.IsSafeToDelete(nameBeforeChanging);
+        viewButton.interactable = ChipSaver.IsSafeToEdit(nameBeforeChanging);
     }
 
     public void ChipNameFieldChanged(string value)
