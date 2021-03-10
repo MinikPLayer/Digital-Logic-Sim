@@ -46,6 +46,12 @@ public class ChipBarUI : MonoBehaviour {
 		bar.localPosition = new Vector3 (0, barPosY, 0);
 	}
 
+	public void RemoveChipButton(Chip chip)
+    {
+		GameObject o = GameObject.Find("Create (" + chip.chipName + ")");
+		Destroy(o);
+    }
+
 	void AddChipButton (Chip chip) {
 		if (hideList.Contains (chip.chipName)) {
 			//Debug.Log("Hiding")

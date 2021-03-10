@@ -56,24 +56,16 @@ public class Manager : MonoBehaviour {
 
 		ChipSaver.Save (activeChipEditor);
 		if (activeChipEditor.chipEditMode)
-			DeletePackedChip();
+			DeleteChip();
 
 		PackageChip ();
 		LoadNewEditor ();
 	}
 	
-	void DeletePackedChip()
+	void DeleteChip()
     {
-		ChipPackage[] packages = transform.GetComponentsInChildren<ChipPackage>();
-		for (int i = 0; i < packages.Length; i++)
-		{
-			Chip chip = packages[i].GetComponent<Chip>();
-			if (chip.chipName == activeChipEditor.chipName)
-			{
-				Destroy(packages[i].gameObject);
-				return;
-			}
-		}
+		if (ChipLoader.previouslyLoadedChips.ContainsKey(activeChipEditor.chipName))
+			ChipLoader.previouslyLoadedChips.Remove(activeChipEditor.chipName);
     }
 
 	Chip PackageChip () {
@@ -82,8 +74,10 @@ public class Manager : MonoBehaviour {
 		package.gameObject.SetActive (false);
 
 		Chip customChip = package.GetComponent<Chip> ();
-		if(!activeChipEditor.chipEditMode)
-			customChipCreated?.Invoke (customChip);
+		if (activeChipEditor.chipEditMode)
+			FindObjectOfType<ChipBarUI>().RemoveChipButton(customChip); // remove already spawned button and replace with new one
+			
+		customChipCreated?.Invoke (customChip);
 		currentChipCreationIndex++;
 
 		if(!ChipLoader.previouslyLoadedChips.ContainsKey(customChip.chipName))

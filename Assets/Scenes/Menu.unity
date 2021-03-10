@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 0.30 <size=25><color=#505050>(last updated 9 Mar 2021)</color></size>
+  m_text: Version 0.40 <size=25><color=#505050>(last updated 9 Mar 2021)</color></size>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1339,7 +1339,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Created by <color=#75ADFF><link="https://www.youtube.com/c/SebastianLague">Sebastian
-    Lague</link></color>, forked and edited by <color=#75FFAD>Minik</color>
+    Lague</link></color>, updated by <color=#75FFAD>Minik</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2682,9 +2682,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.00017553568
+    y: 0.00017857552
     width: 1
-    height: 0.9996489
+    height: 0.99964285
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -3453,6 +3453,7 @@ GameObject:
   - component: {fileID: 1360311114}
   - component: {fileID: 1360311113}
   - component: {fileID: 1360311112}
+  - component: {fileID: 1360311116}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3546,6 +3547,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1360311116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360311111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1375a067c01bc0b488c5e5bdcdd155ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 616973204}
 --- !u!1 &1460982187
 GameObject:
   m_ObjectHideFlags: 0
